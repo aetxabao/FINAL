@@ -35,6 +35,9 @@ public class Ship extends Sprite {
         if (x <= gv.getGameRect().right - width - xSpeed && x + xSpeed >= gv.getGameRect().left) {
             x = x + xSpeed;
         }
+        if (y <= gv.getGameRect().bottom - height - ySpeed && y + ySpeed >= gv.getGameRect().top) {
+            y = y + ySpeed;
+        }
     }
 
     public void updateFrame(){

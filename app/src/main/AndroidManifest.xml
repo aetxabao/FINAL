@@ -25,6 +25,8 @@
             android:screenOrientation="portrait"  />
         <activity android:name=".activities.NewScoreActivity"
             android:screenOrientation="portrait"  />
+        <activity android:name=".activities.SetUpActivity"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

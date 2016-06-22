@@ -117,10 +117,14 @@ public class Drawer {
         Bitmap bmpButton;
         Rect rectSrc, rectDst;
         int uSrc, uDst, x, y;
+        int pos, row, col;
         bmpButton = BitmapFactory.decodeResource(gv.getResources(), R.drawable.joystick);
         uSrc = bmpButton.getWidth() / 3;
 
-        rectSrc = new Rect(uSrc, uSrc, uSrc+uSrc, uSrc+uSrc);
+        pos = gv.controls.getControlPosition();
+        col = pos%3;
+        row = (int)Math.floor(pos/3);
+        rectSrc = new Rect(col*uSrc, row*uSrc, col*uSrc+uSrc, row*uSrc+uSrc);
 
         uDst = gv.myApp.gameRect.width() / 3;
         x =  gv.myApp.gameRect.left;

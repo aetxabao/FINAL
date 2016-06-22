@@ -128,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
      * @return devuelve false
      */
     public boolean btnSetUp(View v) {
-        //TODO: Acceso al activity de configuración
+        Intent intent = new Intent(this, SetUpActivity.class);
+        startActivity(intent);
         return false;
     }
 }

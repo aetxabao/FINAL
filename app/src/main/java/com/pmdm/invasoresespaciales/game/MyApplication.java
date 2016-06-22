@@ -11,6 +11,7 @@ import com.pmdm.invasoresespaciales.R;
 import com.pmdm.invasoresespaciales.sprites.Enemy;
 import com.pmdm.invasoresespaciales.sprites.EnemyDiagonal;
 import com.pmdm.invasoresespaciales.sprites.EnemyGroup;
+import com.pmdm.invasoresespaciales.sprites.EnemyOneWay;
 import com.pmdm.invasoresespaciales.sprites.EnemyRocket;
 import com.pmdm.invasoresespaciales.sprites.EnemySinu;
 import com.pmdm.invasoresespaciales.sprites.Sprite;
@@ -44,7 +45,8 @@ public class MyApplication extends Application {
     public static final boolean NOSHOT = false;
     public static final boolean SHOT = true;
 
-    public static final int NORMAL = 1;
+    public static final int NORMAL = 0;
+    public static final int ONEWAY = 1;
     public static final int DIAGONAL = 2;
     public static final int SINU = 3;
     public static final int ROCKET = 4;
@@ -142,8 +144,8 @@ public class MyApplication extends Application {
 
     private List<Sprite> crearEnemigosNivelBarricada() {
         List<Sprite> enemies = new ArrayList<>();
-        enemies.add(createEnemy(R.drawable.ei2, 0, 0, vx, 0, NORMAL, SHOT));
-        enemies.add(createEnemy(R.drawable.ei2, 7, 1, -vx, 0, NORMAL, SHOT));
+        enemies.add(createEnemy(R.drawable.ei2, 0, 0, vx, 0, ONEWAY, SHOT));
+        //enemies.add(createEnemy(R.drawable.ei2, 7, 1, -vx, 0, ONEWAY, SHOT));
         List<Enemy> el1 = new ArrayList<>();
         el1.add(createEnemy(R.drawable.ei1, 2, 2, 0, 0, NORMAL, NOSHOT));
         el1.add(createEnemy(R.drawable.ei1, 3, 2, 0, 0, NORMAL, NOSHOT));
@@ -243,9 +245,12 @@ public class MyApplication extends Application {
      * @return una instancia del enemigo
      */
     private Enemy createEnemy(int resourceId, int i, int j, int vx, int vy, int type, boolean canShoot) {
-        Enemy e = null;
+        Enemy e;
         Bitmap bmp = BitmapFactory.decodeResource(getResources(), resourceId);
         switch (type){
+            case ONEWAY:
+                e = new EnemyOneWay(gv, bmp, TICKSxFRAME);
+                break;
             case DIAGONAL:
                 e = new EnemyDiagonal(gv, bmp, TICKSxFRAME);
                 break;
@@ -256,6 +261,7 @@ public class MyApplication extends Application {
                 e = new EnemyRocket(gv, bmp, TICKSxFRAME);
                 break;
             case NORMAL:
+            default:
                 e = new Enemy(gv, bmp, TICKSxFRAME);
                 break;
         }
