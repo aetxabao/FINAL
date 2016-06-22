@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Invasores Espaciales</string>
+    <string name="points">Points</string>
+    <string name="level">Level</string>
+    <string name="tryagain">TRY AGAIN</string>
+    <string name="gameover">GAME OVER</string>
+    <string name="nextlevel">NEXT LEVEL</string>
+    <string name="time">Time</string>
+</resources>
